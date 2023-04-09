@@ -12,7 +12,8 @@ const App = () => {
 
 
   const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-  const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
+  
 
   if (!browserSupportsSpeechRecognition) {
     return null
@@ -37,6 +38,7 @@ const App = () => {
           </button>
           <button onClick={startListening}>Start Listening</button>
           <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
+          <button onClick={resetTranscript}>Reset</button>
 
         </div>
 
